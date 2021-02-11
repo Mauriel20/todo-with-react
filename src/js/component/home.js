@@ -7,7 +7,7 @@ export function Home() {
 	const [arrayTareas, setArrayTareas] = React.useState([]);
 	const agregarTarea = e => {
 		e.preventDefault();
-		console.log(tarea);
+		//console.log(tarea);
 		setArrayTareas([
 			...arrayTareas,
 			{
@@ -19,16 +19,20 @@ export function Home() {
 		setTarea("");
 	};
 
-	upDateTask = id => {
-		const updatedTasks = this.state.tarea.filter(
-			tarea => tarea != this.state.tarea[id]
-		);
-		this.setState({ tarea: updatedTasks });
+	const borrarTarea = id => {
+		//console.log(id);
+		for (let i = 0; i < arrayTareas.length; i++) {
+			if (arrayTareas[i].id === id) {
+				arrayTareas.splice(i, 1);
+				//console.log(arrayTareas);
+				setArrayTareas([...arrayTareas]);
+			}
+		}
 	};
 
 	return (
 		<div className="container">
-			<h1 className="text-center">CRUD de Tareas con React</h1>
+			<h1 className="text-center">Tareas con ReactJs</h1>
 			<div className="row">
 				<div className="col-12">
 					<h4 className="text-center">Lista de Tareas</h4>
@@ -52,7 +56,9 @@ export function Home() {
 									className="ml-2 mb-1 close"
 									data-dismiss="toast"
 									aria-label="Close"
-									onClick={upDateTask}>
+									onClick={() => {
+										borrarTarea(item.id);
+									}}>
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</li>
