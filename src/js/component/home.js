@@ -32,17 +32,17 @@ export function Home() {
 
 	return (
 		<div className="container">
-			<h1 className="text-center">Tareas con ReactJs</h1>
+			<h1 className="text-center">Todo with React</h1>
 			<div className="row">
 				<div className="col-12">
-					<h4 className="text-center">Lista de Tareas</h4>
+					<h4 className="text-center">list of todo</h4>
 					<ul className="list-group">
 						<form onSubmit={agregarTarea}>
 							<li className="list-group-item">
 								<input
 									type="text"
 									className="form-control mb-2"
-									placeholder="Ingrese Tarea"
+									placeholder="enter todo"
 									onChange={e => setTarea(e.target.value)}
 									value={tarea}
 								/>
